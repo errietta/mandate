@@ -1,12 +1,10 @@
 language: python
-env:
-  - USE_CLIENT_SECRET=True
-  - USE_CLIENT_SECRET=False
 python:
-  - "2.7"
   - "3.6"
 # command to install dependencies
 install:
-  - "pip install -e '.[test]'"
+  - "pip install pipenv"
+  - "pipenv install"
+
 # command to run tests
-script: nosetests warrant.tests --nocapture --nologcapture
+script: "python -m unittest discover tests"
