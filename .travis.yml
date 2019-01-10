@@ -7,4 +7,4 @@ install:
   - "pipenv install"
 
 # command to run tests
-script: "python -m unittest discover tests"
+script: "pipenv run python -m unittest discover tests"
