@@ -5,13 +5,13 @@ name = "pypi"
 
 [packages]
 envs = ">=0.3.0"
-python-jose-cryptodome = ">=1.3.2"
 "aioboto3" = "*"
 aiohttp = "*"
 aiohttp-client-manager = "*"
 lru-dict = "*"
 attrs = "*"
 asynctest = "*"
+python-jose = "*"
 
 [dev-packages]
 "autopep8" = "*"
