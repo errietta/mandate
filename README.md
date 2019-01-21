@@ -2,6 +2,8 @@
 
 Async fork of [warrant](https://github.com/capless/warrant).
 
+Part of the code was provided by the [warrant](https://github.com/capless/warrant) contributors as part of that software. This code has been duplicated here as allowed by the Apache License 2.0. The warrant code is copyright of the warrant contributors. Any other code is copyright of mandate contrivbutors.
+
 ## Initialise
 
 ```python
