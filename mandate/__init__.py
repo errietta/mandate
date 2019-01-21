@@ -103,6 +103,7 @@ class Cognito(object):
     username = attr.ib(default=None)
     id_token = attr.ib(default=None)
     access_token = attr.ib(default=None)
+    refresh_token = attr.ib(default=None)
     client_secret = attr.ib(default=None)
 
     access_key = attr.ib(default=None)

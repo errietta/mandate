@@ -15,6 +15,7 @@ class testApi(asynctest.TestCase):
         cog.add_base_attributes(email='test@test.com')
 
         async with cog.get_client() as client:
-            with asynctest.patch.object(client, 'sign_up', new=asynctest.CoroutineMock()):
+            with asynctest.patch.object(client, 'sign_up',
+                                        new=asynctest.CoroutineMock()):
                 await cog.register('test@test.com', 'password')
                 client.sign_up.assert_awaited()
