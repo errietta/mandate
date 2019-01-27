@@ -20,8 +20,6 @@ class Cognito(object):
     user_class = UserObj
     group_class = GroupObj
 
-    custom_attributes = {}
-
     user_pool_id = attr.ib()
     client_id = attr.ib()
     user_pool_region = attr.ib()
@@ -161,16 +159,6 @@ class Cognito(object):
     def add_base_attributes(self, **kwargs):
         self.base_attributes = kwargs
 
-    def add_custom_attributes(self, **kwargs):
-        custom_key = 'custom'
-        custom_attributes = {}
-
-        for old_key, value in kwargs.items():
-            new_key = custom_key + ':' + old_key
-            custom_attributes[new_key] = value
-
-        self.custom_attributes = custom_attributes
-
     async def register(self, **kwargs):
         """
         Register the user.
@@ -203,8 +191,6 @@ class Cognito(object):
         if not attributes.get('email'):
             attributes['email'] = kwargs['email']
 
-        if self.custom_attributes:
-            attributes.update(self.custom_attributes)
         cognito_attributes = dict_to_cognito(attributes)
 
         params = {
