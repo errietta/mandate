@@ -171,16 +171,19 @@ class Cognito(object):
 
         self.custom_attributes = custom_attributes
 
-    async def register(self, username, password, attr_map=None):
+    async def register(self, **kwargs):
         """
-        Register the user. Other base attributes from AWS Cognito User Pools
-        are  address, birthdate, email, family_name (last name), gender,
+        Register the user.
+
+        :param username: User Pool username
+        :param password: User Pool password
+        :param email: User Email
+        :param attrs: Other base attributes for AWS such as:
+        address, birthdate, email, family_name (last name), gender,
         given_name (first name), locale, middle_name, name, nickname,
         phone_number, picture, preferred_username, profile, zoneinfo,
         updated at, website
-        :param username: User Pool username
-        :param password: User Pool password
-        :param attr_map: Attribute map to Cognito's attributes
+
         :return response: Response from Cognito
 
         Example response::
@@ -193,10 +196,17 @@ class Cognito(object):
             }
         }
         """
-        attributes = self.base_attributes.copy()
+        attributes = kwargs.get('attrs', {})
+        username = kwargs['username']
+        password = kwargs['password']
+
+        if not attributes.get('email'):
+            attributes['email'] = kwargs['email']
+
         if self.custom_attributes:
             attributes.update(self.custom_attributes)
-        cognito_attributes = dict_to_cognito(attributes, attr_map)
+        cognito_attributes = dict_to_cognito(attributes)
+
         params = {
             'ClientId': self.client_id,
             'Username': username,
