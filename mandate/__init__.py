@@ -159,7 +159,7 @@ class Cognito(object):
     def add_base_attributes(self, **kwargs):
         self.base_attributes = kwargs
 
-    async def register(self, username, password, email, attrs={}):
+    async def register(self, *, username, password, email, attrs={}):
         """
         Register the user.
 
