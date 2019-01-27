@@ -15,6 +15,7 @@ python-jose = "*"
 
 [dev-packages]
 "autopep8" = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.6"

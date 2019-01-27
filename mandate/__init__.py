@@ -159,7 +159,7 @@ class Cognito(object):
     def add_base_attributes(self, **kwargs):
         self.base_attributes = kwargs
 
-    async def register(self, **kwargs):
+    async def register(self, username, password, email, attrs={}):
         """
         Register the user.
 
@@ -184,13 +184,9 @@ class Cognito(object):
             }
         }
         """
-        attributes = kwargs.get('attrs', {})
-        username = kwargs['username']
-        password = kwargs['password']
 
-        if not attributes.get('email'):
-            attributes['email'] = kwargs['email']
-
+        attributes = attrs
+        attributes['email'] = email
         cognito_attributes = dict_to_cognito(attributes)
 
         params = {
