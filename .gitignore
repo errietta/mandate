@@ -90,3 +90,6 @@ ENV/
 .ropeproject
 
 pip-wheel-metadata
+
+.sw?
+.*.sw?
