@@ -5,12 +5,11 @@ install:
 - pip install poetry
 - poetry install
 script: python -m unittest discover tests
-deploy:
-  provider: pypi
-  user: errietta
-  password:
+after_success:
+  sh deploy_script.sh
+
+env:
+  USERNAME: errietta
+  PASSWORD:
     secure: fVjCq1oCOgp88ikLm//jG22Sa9QFw0Al4KiHmJNAVz4EtkdS5VaPCTrQ31qqDE32uqreCx7Eww/x+IYHRc0qdt49zb0rb7jMe7JZpfuzgr6XnkuxfJyczGHt4NJPljbNyYa/GEtomEskLpvAHfYEZ/GubYbFXWIVGTlbDYRVpcDz29Hmhfm2CWLGUVf+zeKU83VRUsK+KDrnMOlLcZLUAHcOZRsMk6e668O+SwtiQsuRJJPc2XklmUPeUnl0hOwxuJXB+nHMGM+dmp9NgxgXOewqTmDt+kSlJVTWWrvESlh8jHtrkPpN3K4lj71yRGoiOmi99R28ShZg8hZCDnRYK6s1F3rzqNKXZW7JmlpKlBPfAJmSlP3oT/bMj1ptAmvW+Xg683KOiRb6fILzPANKdjVxY4zOw0EZJeHY9VomAXVh91VF8Urvi0r36oCS0SLq7DGRaQuZ5iBH8hhEtTBK+O64ROp4ys9z1Gy53PPmW21qZPp0h3l24COFq80/qjt2xpsemMTJBN6rfFbjZcVlmeXegNN1sRgaqFTstVce32cdRVIQLKvmbMB+MenJFSb13w4P6OA0PbusYzeIn3+yjtNVuJqDbnK3eN5zS6okXHoy2uKK/+L0RekbPuL6KZWYY/e+lVGXrZG2i7LuG/NFPlrFVQOO4J2BSQrulRvxvtA=
-  on:
-    repo: errietta/mandate
-    tags: true
 
