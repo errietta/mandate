@@ -3,8 +3,8 @@ python:
   - "3.6"
 # command to install dependencies
 install:
-  - "pip install pipenv"
-  - "pipenv install"
+  - "pip install poetry"
+  - "poetry install"
 
 # command to run tests
-script: "pipenv run python -m unittest discover tests"
+script: "python -m unittest discover tests"

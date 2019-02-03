@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "mandate"
+version = "0.2.0"
+description = ""
+authors = ["Errietta Kostala <errietta@errietta.me>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+envs = ">=0.3.0"
+"aioboto3" = "*"
+aiohttp = "*"
+aiohttp-client-manager = "*"
+lru-dict = "*"
+attrs = "*"
+asynctest = "*"
+python-jose = "*"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
