@@ -98,6 +98,14 @@ If you create an app without app secrets, you should also be able to use the non
     await cog.logout()
 ```
 
+## Development
+
+Install [poetry](https://github.com/sdispater/poetry), then to install the
+dependencies:
+
+```
+poetry install
+```
+
 ## Unit tests
 python -m unittest discover tests
-
