@@ -32,6 +32,7 @@ class Cognito(object):
 
     access_key = attr.ib(default=None)
     secret_key = attr.ib(default=None)
+    client_callback = attr.ib(default=None)
 
     loop = attr.ib(default=None)
     _client = None
@@ -44,8 +45,8 @@ class Cognito(object):
         return aiohttp.ClientSession(loop=self.loop)
 
     def get_client(self):
-        if self._client:
-            return self._client
+        if self.client_callback:
+            return self.client_callback()
 
         boto3_client_kwargs = {}
         if self.access_key and self.secret_key:
@@ -54,10 +55,8 @@ class Cognito(object):
         if self.user_pool_region:
             boto3_client_kwargs['region_name'] = self.user_pool_region
 
-        self._client = aioboto3.client(
+        return aioboto3.client(
             'cognito-idp', loop=self.loop, **boto3_client_kwargs)
-
-        return self._client
 
     async def get_keys(self):
         try:
