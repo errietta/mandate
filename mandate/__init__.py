@@ -319,12 +319,20 @@ class Cognito(object):
             self.access_token = None
             self.token_type = None
 
-    async def admin_update_profile(self, attrs, attr_map=None):
+    async def admin_update_profile(
+            self,
+            username=None,
+            attrs={},
+            attr_map=None
+        ):
+        if not username:
+            username = self.username
+
         user_attrs = dict_to_cognito(attrs, attr_map)
         async with self.get_client() as client:
             await client.admin_update_user_attributes(
                 UserPoolId=self.user_pool_id,
-                Username=self.username,
+                Username=username,
                 UserAttributes=user_attrs
             )
 
