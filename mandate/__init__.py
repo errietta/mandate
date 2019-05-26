@@ -12,7 +12,7 @@ from .userobj import UserObj
 from .groupobj import GroupObj
 from .utils import dict_to_cognito
 
-__version__ = "0.2.5"
+__version__ = "0.3.0"
 
 
 @attr.s
