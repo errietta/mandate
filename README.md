@@ -86,10 +86,18 @@ If you create an app without app secrets, you should also be able to use the non
 ## Update profile
 ```python
     await cog.admin_authenticate(password)
-    await cog.admin_update_profile(
+    await cog.update_profile(
         {
             'address': 'foo'
         }
+    )
+```
+
+Or as admin
+```python
+    await cog.admin_update_profile(
+        username='other-user',
+        attrs={'gender':'potato'}
     )
 ```
 
