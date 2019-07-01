@@ -103,7 +103,7 @@ Or as admin
 
 ## Delete user
 ```python
-    await cog.admin_delete_user(username=user.email@example.com)
+    await cog.admin_delete_user(username='user.email@example.com')
 ```
 
 ## Logout
