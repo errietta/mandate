@@ -515,11 +515,11 @@ class Cognito(object):
                 AccessToken=self.access_token
             )
 
-    async def admin_delete_user(self):
+    async def admin_delete_user(self, username):
         async with self.get_client() as client:
             await client.admin_delete_user(
                 UserPoolId=self.user_pool_id,
-                Username=self.username
+                Username=username
             )
 
     async def confirm_forgot_password(self, confirmation_code, password):
