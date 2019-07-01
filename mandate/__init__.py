@@ -35,7 +35,6 @@ class Cognito(object):
     client_callback = attr.ib(default=None)
 
     loop = attr.ib(default=None)
-    _client = None
 
     @user_pool_region.default
     def generate_region_from_pool(self):
