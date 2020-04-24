@@ -32,14 +32,12 @@ class Cognito(object):
     secret_key = attr.ib(default=None)
     client_callback = attr.ib(default=None)
 
-    loop = attr.ib(default=None)
-
     @user_pool_region.default
     def generate_region_from_pool(self):
         return self.user_pool_id.split('_')[0]
 
     def get_session(self):
-        return aiohttp.ClientSession(loop=self.loop)
+        return aiohttp.ClientSession()
 
     def get_client(self):
         if self.client_callback:
@@ -53,7 +51,7 @@ class Cognito(object):
             boto3_client_kwargs['region_name'] = self.user_pool_region
 
         return aioboto3.client(
-            'cognito-idp', loop=self.loop, **boto3_client_kwargs)
+            'cognito-idp', **boto3_client_kwargs)
 
     async def get_keys(self):
         try:
