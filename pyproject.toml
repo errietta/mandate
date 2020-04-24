@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.6"
 envs = ">=0.3.0"
-"aioboto3" = "*"
+aioboto3 = "8"
 aiohttp = "*"
 aiohttp-client-manager = "*"
 lru-dict = "*"
