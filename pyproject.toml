@@ -12,7 +12,6 @@ envs = ">=0.3.0"
 aioboto3 = "^9.2.2"
 aiohttp = "*"
 aiohttp-client-manager = "*"
-lru-dict = "*"
 attrs = "*"
 python-jose = "*"
 
