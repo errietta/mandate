@@ -50,7 +50,8 @@ class Cognito(object):
         if self.user_pool_region:
             boto3_client_kwargs['region_name'] = self.user_pool_region
 
-        return aioboto3.client(
+        self.session = aioboto3.Session()
+        return self.session.client(
             'cognito-idp', **boto3_client_kwargs)
 
     async def get_keys(self):
