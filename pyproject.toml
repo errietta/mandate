@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mandate"
-version = "2.0.0"
+version = "2.0.1"
 description = "Async wrapper for AWS cognito. Heavily based on capless/warrant"
 authors = ["Errietta Kostala <errietta@errietta.me>"]
 license = "Apache-2.0"
